@@ -2,7 +2,7 @@ package fr.uphf.bugtrackingweb;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+//test
 @Entity
 public class Bug {
     @Id
