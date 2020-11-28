@@ -2,6 +2,10 @@ package fr.uphf.bugtrackingweb;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.List;
+
 //test
 @Entity
 public class Bug {
@@ -52,4 +56,9 @@ public class Bug {
         this.etat = etat;
 
     }
+    @ManyToOne
+    private Developpeur developpeur;
+    @OneToMany
+    private List<Commentaire> commentaire;
+
 }
