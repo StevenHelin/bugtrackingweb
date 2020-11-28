@@ -6,18 +6,18 @@ import javax.persistence.Id;
 @Entity
 public class Bug {
     @Id
-    private int id;
+    private int idBug;
     private String titre;
     private String description;
     private String priorite;
     private String etat;
 
-    public int getId() {
-        return id;
+    public int getIdBug() {
+        return idBug;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdBug(int idBug) {
+        this.idBug = idBug;
     }
 
     public String getTitre() {
@@ -50,5 +50,6 @@ public class Bug {
 
     public void setEtat(String etat) {
         this.etat = etat;
+
     }
 }
