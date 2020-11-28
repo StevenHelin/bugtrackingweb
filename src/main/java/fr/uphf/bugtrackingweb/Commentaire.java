@@ -55,7 +55,8 @@ public class Commentaire
         return bug;
     }
 
-    public void setBug(Bug bug) {
+    public void setBug(Bug bug)
+    {
         this.bug = bug;
     }
 }
