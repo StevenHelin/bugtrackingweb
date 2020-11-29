@@ -1,20 +1,30 @@
-insert into Bug(titre, description, propriete, etat)
+insert into Developpeur(ID_DEV,AVATAR, NOM)
 values
-('Erreur fin de ligne', 'Oublie du point-virgule', 'BASSE', 'TODO'),
-('Erreur d\'affichage', 'Couleur blanche au lieu de noir', 'NORMALE', 'TODO'),
-('Erreur de securite', 'Defaillance des donnees', 'HAUTE', 'TODO'),
-('Erreur d\'ENT', 'Correction de l\'emploi du temps', 'BASE', 'TODO');
+(1,'chien','HELIN');
+insert into Developpeur(ID_DEV,AVATAR, NOM)
+values
+(2,'dauphin','DEWAGHE');
+insert into Developpeur(ID_DEV,AVATAR, NOM)
+values
+(3,'lapin','LEFEYER');
 
-insert into Developpeur(nom)
-values
-('HELIN'),
-('DEWAGHE'),
-('GUERY'),
-('LEFEYER');
 
-insert into Commentaire(message, auteur, date, bug)
+insert into Bug(ID_BUG,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID_DEV)
 values
-('Va falloir revoir vos cours de C !', 1, TO_DATE('28/11/2020', 'DD/MM/YYYY'), 1)
-('J\'vois rien !!!', 2, TO_DATE('26/11/2020', 'DD/MM/YYYY'), 2)
-('N = NP', 3, TO_DATE('27/11/2020', 'DD/MM/YYYY'), 3)
-('C\'est qui qui ne sait pas coder ?!', 4, TO_DATE('28/11/2020', 'DD/MM/YYYY'), 4);
+(1,'29/11/2020','Pb syntaxe','TODO','HAUTE','BUG 1',1);
+insert into Bug(ID_BUG,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID_DEV)
+values
+(2,'19/12/2020','Bug classique','TODO','MOYEN','BUG 2',2);
+
+
+
+insert into Commentaire(ID_COM,DATEP,MESSAGE,AUTEUR_ID_DEV,BUG_ID_BUG)
+values
+(1,TO_DATE('28/11/2020', 'DD/MM/YYYY'),'Va falloir revoir vos cours de C !', 1,1);
+
+insert into Commentaire(ID_COM,DATEP,MESSAGE,AUTEUR_ID_DEV,BUG_ID_BUG)
+values
+(2,TO_DATE('26/11/2020', 'DD/MM/YYYY'),'Je vois rien !!!', 2, 2);
+
+--('N = NP', 3, TO_DATE('27/11/2020', 'DD/MM/YYYY'), 3),
+--('C\'est qui qui ne sait pas coder ?!', 4, TO_DATE('28/11/2020', 'DD/MM/YYYY'), 4);

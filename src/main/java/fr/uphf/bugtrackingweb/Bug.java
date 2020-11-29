@@ -15,6 +15,11 @@ public class Bug {
     private String description;
     private String priorite;
     private String etat;
+    private String dateC;
+    @ManyToOne
+    private Developpeur developpeur;
+    @OneToMany
+    private List<Commentaire> commentaire;
 
     public int getIdBug() {
         return idBug;
@@ -56,9 +61,12 @@ public class Bug {
         this.etat = etat;
 
     }
-    @ManyToOne
-    private Developpeur developpeur;
-    @OneToMany
-    private List<Commentaire> commentaire;
 
+    public String getDateC(){
+        return dateC;
+    }
+
+    public void setDateC(String date) {
+        this.dateC = date;
+    }
 }

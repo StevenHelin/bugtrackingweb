@@ -15,7 +15,7 @@ public class Commentaire
     @ManyToOne
     private Developpeur auteur;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date date;
+    private Date dateP;
     @ManyToOne
     private Bug bug;
 
@@ -43,12 +43,12 @@ public class Commentaire
         this.auteur = auteur;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateP() {
+        return dateP;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateP(Date dateP) {
+        this.dateP = dateP;
     }
 
     public Bug getBug() {
