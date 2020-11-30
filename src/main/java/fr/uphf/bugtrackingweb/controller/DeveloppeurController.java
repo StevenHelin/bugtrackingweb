@@ -11,7 +11,7 @@ import java.util.List;
 public class DeveloppeurController
 {
     @Autowired
-    fr.uphf.bugtrackingweb.repositories.DeveloppeurRepository DeveloppeurRepository;
+    DeveloppeurRepository DeveloppeurRepository;
 
     @GetMapping("developpeur/{id}")
     public Developpeur getDeveloppeur(@PathVariable("id") Integer id)

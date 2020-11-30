@@ -11,7 +11,7 @@ import java.util.List;
 public class CommentaireController
 {
     @Autowired
-    fr.uphf.bugtrackingweb.repositories.CommentaireRepository CommentaireRepository;
+    CommentaireRepository CommentaireRepository;
 
     @GetMapping("commentaire/{id}")
     public Commentaire getCommentaire(@PathVariable("id") Integer id)
