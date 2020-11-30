@@ -26,7 +26,7 @@ public class BugController {
     }
 
     @GetMapping("bug")
-    public List<Bug> getAllStudents() {
+    public List<Bug> getAllBug() {
         return BugRepository.findAll();
     }
 }
