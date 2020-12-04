@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 //import a faire possible de springfox, dependance Maven ?
 
-/**import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -36,4 +36,4 @@ public class SwaggerConfig {
                 .version("0.0.1-SNAPSHOT")
                 .build();
     }
-}**/
+}
