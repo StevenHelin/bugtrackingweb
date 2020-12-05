@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "ceea23ab-cd14-4b72-a40a-965d3f091305",
+		"name": "bugtracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getbugs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/bug",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getbugbyid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/bug/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getdev",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/commentaire",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"commentaire"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getcomm",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
