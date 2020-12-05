@@ -69,4 +69,6 @@ public class Bug {
     public void setDateC(String date) {
         this.dateC = date;
     }
+
+    public void suppBug(int idBug){}
 }

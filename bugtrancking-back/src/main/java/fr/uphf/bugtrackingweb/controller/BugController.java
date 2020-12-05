@@ -29,4 +29,20 @@ public class BugController {
     public List<Bug> getAllBug() {
         return BugRepository.findAll();
     }
+
+    @DeleteMapping("bug/{id}")
+    public void deleteBug(@PathVariable Integer id){
+        BugRepository.deleteById(id);
+    }
+
+    @PostMapping("bug")
+    public Bug createBug(@Validated @RequestBody CreateBug bug){
+        return BugRepository.save(
+                Bug
+                .builder()
+                .titre(bug.getTitre())
+                .description(bug.getDescription())
+                .priorite
+        );
+    }
 }

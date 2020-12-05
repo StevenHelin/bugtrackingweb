@@ -32,7 +32,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Bug API")
-                .description("API to manage Bug")
+                .description("API for bugtracking")
                 .version("0.0.1-SNAPSHOT")
                 .build();
     }
