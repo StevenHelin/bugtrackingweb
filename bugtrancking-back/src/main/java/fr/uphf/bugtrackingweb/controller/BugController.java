@@ -33,7 +33,6 @@ public class BugController {
 
     @DeleteMapping("bug/{id}")
     public void deleteBug(@PathVariable Integer id){
-
         BugRepository.deleteById(id);
 
     }
@@ -52,5 +51,20 @@ public class BugController {
                 .commentaire(bug.getCommentaires())
                 .build()
         );
+    }
+
+    @GetMapping("bug/titre")
+    public List<Bug> getBug(@RequestParam String titre) {
+        return BugRepository.findBugByTitle(titre);
+    }
+
+    @GetMapping("bug/etat")
+    public List<Bug> getBugEtat(@RequestParam String etat) {
+        return BugRepository.findBugByEtat(etat);
+    }
+
+    @GetMapping("bug/liste/{id}")
+    public Bug getBugCom(@PathVariable("id") Integer id) {
+        return BugRepository.PrintComById(id);
     }
 }

@@ -8,6 +8,7 @@ import fr.uphf.bugtrackingweb.CreateDeveloppeur;
 import fr.uphf.bugtrackingweb.Developpeur;
 import fr.uphf.bugtrackingweb.repositories.DeveloppeurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -48,4 +49,7 @@ public class DeveloppeurController
                         .build()
         );
     }
+
+
+
 }

@@ -11,10 +11,10 @@ values
 
 insert into Bug(ID_BUG,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID_DEV)
 values
-(1,'29/11/2020','Pb syntaxe','TODO','HAUTE','BUG 1',1);
+(1,'29/11/2020','Pb syntaxe','TODO','HAUTE','BUG1',1);
 insert into Bug(ID_BUG,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID_DEV)
 values
-(2,'19/12/2020','Bug classique','TODO','MOYEN','BUG 2',2);
+(2,'19/12/2020','Bug classique','TODO','MOYEN','BUG2',2);
 
 
 
