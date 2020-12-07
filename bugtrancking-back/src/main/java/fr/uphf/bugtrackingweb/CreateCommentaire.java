@@ -1,32 +1,25 @@
 package fr.uphf.bugtrackingweb;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import javax.persistence.*;
-import java.util.Date;
-
+import fr.uphf.bugtrackingweb.Bug;
+import fr.uphf.bugtrackingweb.Commentaire;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
+import java.util.List;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Builder
-public class Commentaire
-{
-    @Id
-    private int idCom;
+public class CreateCommentaire {
     private String message;
-    @ManyToOne
     private Developpeur auteur;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dateP;
-    @ManyToOne
     private Bug bug;
 }

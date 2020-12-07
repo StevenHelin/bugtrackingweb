@@ -3,7 +3,10 @@ package fr.uphf.bugtrackingweb.controller;
 import java.util.List;
 
 
+import fr.uphf.bugtrackingweb.Bug;
 import fr.uphf.bugtrackingweb.Commentaire;
+import fr.uphf.bugtrackingweb.CreateBug;
+import fr.uphf.bugtrackingweb.CreateCommentaire;
 import fr.uphf.bugtrackingweb.repositories.CommentaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,5 +35,18 @@ public class CommentaireController
     public List<Commentaire> getAllCommentaire()
     {
         return CommentaireRepository.findAll();
+    }
+
+    @PostMapping("commentaire")
+    public Commentaire createCommentaire(@Validated @RequestBody CreateCommentaire com) {
+        return CommentaireRepository.save(
+                Commentaire
+                        .builder()
+                        .message(com.getMessage())
+                        .auteur(com.getAuteur())
+                        .dateP((com.getDateP()))
+                        .bug(com.getBug())
+                        .build()
+        );
     }
 }

@@ -3,6 +3,7 @@ package fr.uphf.bugtrackingweb.controller;
 import java.util.List;
 
 import fr.uphf.bugtrackingweb.Bug;
+import fr.uphf.bugtrackingweb.CreateBug;
 import fr.uphf.bugtrackingweb.repositories.BugRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,9 @@ public class BugController {
 
     @DeleteMapping("bug/{id}")
     public void deleteBug(@PathVariable Integer id){
+
         BugRepository.deleteById(id);
+
     }
 
     @PostMapping("bug")
@@ -42,7 +45,12 @@ public class BugController {
                 .builder()
                 .titre(bug.getTitre())
                 .description(bug.getDescription())
-                .priorite
+                .priorite(bug.getPriorite())
+                .etat(bug.getEtat())
+                .dateC(bug.getDateC())
+                .developpeur(bug.getDeveloppeur())
+                .commentaire(bug.getCommentaires())
+                .build()
         );
     }
 }

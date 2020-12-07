@@ -1,30 +1,23 @@
 package fr.uphf.bugtrackingweb;
 
-import javax.persistence.*;
-import java.util.List;
-
+import fr.uphf.bugtrackingweb.Bug;
+import fr.uphf.bugtrackingweb.Commentaire;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Builder
-public class Developpeur
-{
-    @Id
-    private int idDev;
+
+public class CreateDeveloppeur {
     private String nom;
     private String avatar;
-    @OneToMany
     private List<Bug> bugs;
-    @OneToMany
     private List<Commentaire> commentaires;
-
 }

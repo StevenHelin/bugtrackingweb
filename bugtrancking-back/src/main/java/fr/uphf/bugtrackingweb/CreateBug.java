@@ -1,34 +1,23 @@
 package fr.uphf.bugtrackingweb;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import java.util.List;
-
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Builder
-public class Bug {
-    @Id
-    private int idBug;
+public class CreateBug {
     private String titre;
     private String description;
     private String priorite;
     private String etat;
     private String dateC;
-    @ManyToOne
     private Developpeur developpeur;
-    @OneToMany
-    private List<Commentaire> commentaire;
+    private List<Commentaire> commentaires;
 }

@@ -1,6 +1,10 @@
 package fr.uphf.bugtrackingweb.controller;
 
 import java.util.List;
+
+import fr.uphf.bugtrackingweb.Commentaire;
+import fr.uphf.bugtrackingweb.CreateCommentaire;
+import fr.uphf.bugtrackingweb.CreateDeveloppeur;
 import fr.uphf.bugtrackingweb.Developpeur;
 import fr.uphf.bugtrackingweb.repositories.DeveloppeurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +34,18 @@ public class DeveloppeurController
     public List<Developpeur> getAllDeveloppeur()
     {
         return DeveloppeurRepository.findAll();
+    }
+
+    @PostMapping("developpeur")
+    public Developpeur createDeveloppeur(@Validated @RequestBody CreateDeveloppeur dev) {
+        return DeveloppeurRepository.save(
+                Developpeur
+                        .builder()
+                        .nom(dev.getNom())
+                        .avatar(dev.getAvatar())
+                        .bugs(dev.getBugs())
+                        .commentaires(dev.getCommentaires())
+                        .build()
+        );
     }
 }
