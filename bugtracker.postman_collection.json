@@ -64,12 +64,105 @@
 			"response": []
 		},
 		{
-			"name": "getcomm",
+			"name": "delbug",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:5000/bug/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createBug",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idBug\": 5,\r\n    \"titre\": \"bugtest\",\r\n    \"description\":\"ifjeshjg\",\r\n    \"priorité\":\"basse\",\r\n    \"etat\":\"TERMINE\",\r\n    \"dateC\":null,\r\n    \"developpeur\":null,\r\n    \"commentaire\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/bug",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createDev",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"idDev\": 6,\r\n\"nom\":\"Pauline\",\r\n\"avatar\":\"papillon\",\r\n\"bugs\":null,\r\n\"commentaires\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/developpeur",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"developpeur"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCom\":7,\r\n    \"message\":\"j'en ai marre\",\r\n    \"auteur\":null ,\r\n    \"dateP\":null,\r\n    \"bug\":null\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/commentaire",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"commentaire"
+					]
 				}
 			},
 			"response": []
