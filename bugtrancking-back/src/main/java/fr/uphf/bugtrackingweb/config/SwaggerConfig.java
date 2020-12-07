@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 //import a faire possible de springfox, dependance Maven ?
 
-/**import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -23,7 +23,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("fr.uphf.controller"))
+                .apis(RequestHandlerSelectors.basePackage("fr.uphf.bugtrackingweb.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -31,9 +31,9 @@ public class SwaggerConfig {
     // Describe your apis
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Students API")
-                .description("API to manage students")
+                .title("Bug API")
+                .description("API to manage Bug")
                 .version("0.0.1-SNAPSHOT")
                 .build();
     }
-}**/
+}
