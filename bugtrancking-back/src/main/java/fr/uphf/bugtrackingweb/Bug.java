@@ -30,6 +30,6 @@ public class Bug {
     private Date dateC;
     @ManyToOne
     private Developpeur developpeur;
-    @OneToMany(mappedBy = "bug")
+    @OneToMany(mappedBy = "bug", orphanRemoval=true)
     private List<Commentaire> commentaire;
 }
