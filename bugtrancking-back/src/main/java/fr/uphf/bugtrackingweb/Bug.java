@@ -22,7 +22,7 @@ import lombok.Setter;
 @Builder
 public class Bug {
     @Id
-    private int id;
+    private int idBug;
     private String titre;
     private String description;
     private String priorite;

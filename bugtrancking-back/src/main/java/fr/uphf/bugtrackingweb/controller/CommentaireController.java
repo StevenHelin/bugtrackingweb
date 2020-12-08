@@ -43,7 +43,7 @@ public class CommentaireController
                 Commentaire
                         .builder()
                         .message(com.getMessage())
-                        .developpeur(com.getAuteur())
+                        .auteur(com.getAuteur())
                         .dateP((com.getDateP()))
                         .bug(com.getBug())
                         .build()
