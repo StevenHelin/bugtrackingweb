@@ -11,18 +11,19 @@ values
 
 insert into Bug(ID,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID)
 values
-(1,'29/11/2020','Pb syntaxe','TODO','HAUTE','BUG1',1);
+
+(1,TO_DATE('28-11-2020', 'dd-MM-yyyy'),'Pb syntaxe','TODO','HAUTE','BUG1',1);
 insert into Bug(ID,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID)
 values
-(2,'19/12/2020','Bug classique','TODO','MOYEN','BUG2',2);
+(2,TO_DATE('29-12-2020', 'dd-MM-yyyy'),'Bug classique','TODO','MOYEN','BUG2',2);
 
 
 
-insert into Commentaire(ID,DATEP,MESSAGE,AUTEUR_ID,BUG_ID)
+insert into Commentaire(ID,DATEP,MESSAGE,DEVELOPPEUR_ID,BUG_ID)
 values
 (1,TO_DATE('28/11/2020', 'DD/MM/YYYY'),'Va falloir revoir vos cours de C !', 1,1);
 
-insert into Commentaire(ID,DATEP,MESSAGE,AUTEUR_ID,BUG_ID)
+insert into Commentaire(ID,DATEP,MESSAGE,DEVELOPPEUR_ID,BUG_ID)
 values
 (2,TO_DATE('26/11/2020', 'DD/MM/YYYY'),'Je vois rien !!!', 2, 2);
 
