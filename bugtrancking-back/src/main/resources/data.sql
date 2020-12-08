@@ -1,28 +1,28 @@
-insert into Developpeur(ID_DEV,AVATAR, NOM)
+insert into Developpeur(ID,AVATAR, NOM)
 values
 (1,'chien','HELIN');
-insert into Developpeur(ID_DEV,AVATAR, NOM)
+insert into Developpeur(ID,AVATAR, NOM)
 values
 (2,'dauphin','DEWAGHE');
-insert into Developpeur(ID_DEV,AVATAR, NOM)
+insert into Developpeur(ID,AVATAR, NOM)
 values
 (3,'lapin','LEFEYER');
 
 
-insert into Bug(ID_BUG,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID_DEV)
+insert into Bug(ID,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID)
 values
-(1,TO_DATE('28-11-2020', 'dd-MM-yyyy'),'Pb syntaxe','TODO','HAUTE','BUG1',1);
-insert into Bug(ID_BUG,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID_DEV)
+(1,'29/11/2020','Pb syntaxe','TODO','HAUTE','BUG1',1);
+insert into Bug(ID,DATEC,DESCRIPTION,ETAT,PRIORITE,TITRE,DEVELOPPEUR_ID)
 values
-(2,TO_DATE('29-12-2020', 'dd-MM-yyyy'),'Bug classique','TODO','MOYEN','BUG2',2);
+(2,'19/12/2020','Bug classique','TODO','MOYEN','BUG2',2);
 
 
 
-insert into Commentaire(ID_COM,DATEP,MESSAGE,AUTEUR_ID_DEV,BUG_ID_BUG)
+insert into Commentaire(ID,DATEP,MESSAGE,AUTEUR_ID,BUG_ID)
 values
 (1,TO_DATE('28/11/2020', 'DD/MM/YYYY'),'Va falloir revoir vos cours de C !', 1,1);
 
-insert into Commentaire(ID_COM,DATEP,MESSAGE,AUTEUR_ID_DEV,BUG_ID_BUG)
+insert into Commentaire(ID,DATEP,MESSAGE,AUTEUR_ID,BUG_ID)
 values
 (2,TO_DATE('26/11/2020', 'DD/MM/YYYY'),'Je vois rien !!!', 2, 2);
 

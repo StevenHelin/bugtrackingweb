@@ -19,12 +19,12 @@ import lombok.Setter;
 public class Developpeur
 {
     @Id
-    private int idDev;
+    private int id;
     private String nom;
     private String avatar;
     @OneToMany(mappedBy = "developpeur")
     private List<Bug> bugs;
-    @OneToMany(mappedBy = "bug")
+    @OneToMany(mappedBy = "developpeur")
     private List<Commentaire> commentaires;
 
 }
