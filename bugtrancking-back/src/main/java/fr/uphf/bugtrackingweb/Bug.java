@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.Date;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -26,7 +27,7 @@ public class Bug {
     private String description;
     private String priorite;
     private String etat;
-    private String dateC;
+    private Date dateC;
     @ManyToOne
     private Developpeur developpeur;
     @OneToMany(mappedBy = "bug")

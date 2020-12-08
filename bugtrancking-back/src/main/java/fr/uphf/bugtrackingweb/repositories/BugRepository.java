@@ -1,4 +1,5 @@
 package fr.uphf.bugtrackingweb.repositories;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,4 +23,7 @@ public interface BugRepository extends JpaRepository<Bug, Integer> {
 
     @Query ("SELECT b.priorite FROM Bug b WHERE b.priorite = ?1")
     List<Bug> findBugByPriorite(String priorite);
+
+    @Query("SELECT b FROM Bug b WHERE b.dateC > ?1 AND b.dateC < ?2")
+    List<Bug> findBugByDate(Date debut,Date fin);
 }

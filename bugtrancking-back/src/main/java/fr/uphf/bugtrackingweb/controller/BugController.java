@@ -1,20 +1,16 @@
 package fr.uphf.bugtrackingweb.controller;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
-import fr.uphf.bugtrackingweb.Bug;
-import fr.uphf.bugtrackingweb.CreateBug;
+import fr.uphf.bugtrackingweb.*;
 import fr.uphf.bugtrackingweb.repositories.BugRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BugController {
@@ -63,8 +59,27 @@ public class BugController {
         return BugRepository.findBugByEtat(etat);
     }
 
+    @GetMapping("bug/date")
+    public List<Bug> getBugByDate(@RequestParam("debut") @DateTimeFormat(pattern="dd-MM-yyyy")Date debut,
+                                  @RequestParam("fin") @DateTimeFormat(pattern = "dd-MM-yyyy") Date fin){
+        return BugRepository.findBugByDate(debut,fin);
+    }
+
     @GetMapping("bug/liste/{id}")
     public Bug getBugCom(@PathVariable("id") Integer id) {
         return BugRepository.PrintComById(id);
+    }
+
+    @PutMapping("/bug/{id}")
+    public Optional<Bug> replaceBugById(@RequestParam CreateBug bug, @PathVariable int id){
+        return BugRepository.findById(id)
+                .map(Bug -> {
+                Bug.setTitre(bug.getTitre());
+                Bug.setDescription(bug.getDescription());
+                Bug.setPriorite(bug.getPriorite());
+                Bug.setEtat(bug.getEtat());
+                Bug.setDateC(bug.getDateC());
+                return BugRepository.save(Bug);
+                });
     }
 }
