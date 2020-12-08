@@ -5,4 +5,6 @@ export interface Bug
   priorite: string;
   etat: string;
   dateC: date;
+  developpeur: developpeur;
+  commentaire: list<commentaire>;
 }
