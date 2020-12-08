@@ -21,10 +21,10 @@ import lombok.Setter;
 public class Commentaire
 {
     @Id
-    private int idCom;
+    private int id;
     private String message;
     @ManyToOne
-    private Developpeur auteur;
+    private Developpeur developpeur;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dateP;
     @ManyToOne
