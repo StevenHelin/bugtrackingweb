@@ -29,6 +29,6 @@ public class Bug {
     private String dateC;
     @ManyToOne
     private Developpeur developpeur;
-    @OneToMany
+    @OneToMany(mappedBy = "bug")
     private List<Commentaire> commentaire;
 }

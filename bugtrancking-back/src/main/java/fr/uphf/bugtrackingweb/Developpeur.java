@@ -22,9 +22,9 @@ public class Developpeur
     private int idDev;
     private String nom;
     private String avatar;
-    @OneToMany
+    @OneToMany(mappedBy = "developpeur")
     private List<Bug> bugs;
-    @OneToMany
+    @OneToMany(mappedBy = "bug")
     private List<Commentaire> commentaires;
 
 }
