@@ -7,6 +7,8 @@ import javax.persistence.OneToMany;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,7 +31,9 @@ public class Bug {
     private String etat;
     private Date dateC;
     @ManyToOne
+    @JsonBackReference
     private Developpeur developpeur;
     @OneToMany(mappedBy = "bug", orphanRemoval=true)
+    @JsonManagedReference
     private List<Commentaire> commentaire;
 }

@@ -6,8 +6,10 @@ import java.util.Optional;
 
 import fr.uphf.bugtrackingweb.*;
 import fr.uphf.bugtrackingweb.repositories.BugRepository;
+import fr.uphf.bugtrackingweb.repositories.DeveloppeurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 public class BugController {
     @Autowired
     BugRepository BugRepository;
+
+    @Autowired
+    DeveloppeurRepository DeveloppeurRepository;
 
     @GetMapping("bug/{id}")
     public Bug getBug(@PathVariable("id") Integer id) {
@@ -81,5 +86,24 @@ public class BugController {
                 Bug.setDateC(bug.getDateC());
                 return BugRepository.save(Bug);
                 });
+    }
+
+    @PutMapping("/bug/{id]/dev/{iddev}")
+    public ResponseEntity<?> ajoutDev(@PathVariable("id") int id,@PathVariable("iddev") int iddev){
+        try {
+            Bug bug = this.BugRepository.findById(id).map(bugFound ->{
+                Optional<Developpeur> devFound = this.DeveloppeurRepository.findById(iddev);
+                if(devFound.isPresent()){
+                    bugFound.setDeveloppeur(devFound.get());
+                    return BugRepository.save(bugFound);
+                }
+                else{
+                    throw new RuntimeException("Developpeur non trouvé");
+                }
+            }).orElseThrow(() -> new RuntimeException("Bug non trouvé"));
+            return ResponseEntity.ok(bug);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(e);
+        }
     }
 }

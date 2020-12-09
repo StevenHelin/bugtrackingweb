@@ -3,6 +3,7 @@ package fr.uphf.bugtrackingweb;
 import javax.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,8 +24,10 @@ public class Developpeur
     private String nom;
     private String avatar;
     @OneToMany(mappedBy = "developpeur")
+    @JsonManagedReference
     private List<Bug> bugs;
     @OneToMany(mappedBy = "developpeur")
+    @JsonManagedReference
     private List<Commentaire> commentaires;
 
 }

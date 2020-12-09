@@ -1,5 +1,6 @@
 package fr.uphf.bugtrackingweb;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
@@ -24,9 +25,11 @@ public class Commentaire
     private int id;
     private String message;
     @ManyToOne
+    @JsonBackReference
     private Developpeur developpeur;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dateP;
     @ManyToOne
+    @JsonBackReference
     private Bug bug;
 }
