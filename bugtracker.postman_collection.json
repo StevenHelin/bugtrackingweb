@@ -50,14 +50,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/commentaire",
+					"raw": "http://localhost:5000/developpeur",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"commentaire"
+						"developpeur"
 					]
 				}
 			},
@@ -90,7 +90,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idBug\": 5,\r\n    \"titre\": \"bugtest\",\r\n    \"description\":\"ifjeshjg\",\r\n    \"priorité\":\"basse\",\r\n    \"etat\":\"TERMINE\",\r\n    \"dateC\":null,\r\n    \"developpeur\":null,\r\n    \"commentaire\":null\r\n}",
+					"raw": "{\r\n    \"titre\": \"bugtest\",\r\n    \"description\":\"ifjeshjg\",\r\n    \"priorité\":\"basse\",\r\n    \"etat\":\"TERMINE\",\r\n    \"dateC\":\"12-12-2020\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -118,7 +118,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"idDev\": 6,\r\n\"nom\":\"Pauline\",\r\n\"avatar\":\"papillon\",\r\n\"bugs\":null,\r\n\"commentaires\":null\r\n}",
+					"raw": "{\r\n\"nom\":\"Pauline\",\r\n\"avatar\":\"papillon\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -140,19 +140,92 @@
 			"response": []
 		},
 		{
-			"name": "CreateCom",
+			"name": "getTitle",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"idCom\":7,\r\n    \"message\":\"j'en ai marre\",\r\n    \"auteur\":null ,\r\n    \"dateP\":null,\r\n    \"bug\":null\r\n\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"url": {
+					"raw": "http://localhost:5000/bug/titre?titre=BU",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug",
+						"titre"
+					],
+					"query": [
+						{
+							"key": "titre",
+							"value": "BU"
 						}
-					}
-				},
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEtat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/bug/etat?etat=EN COURS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug",
+						"etat"
+					],
+					"query": [
+						{
+							"key": "etat",
+							"value": "EN COURS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TriParDate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/bug/date?debut=27-11-2020&fin=25-12-2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug",
+						"date"
+					],
+					"query": [
+						{
+							"key": "debut",
+							"value": "27-11-2020"
+						},
+						{
+							"key": "fin",
+							"value": "25-12-2020"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getcom",
+			"request": {
+				"method": "GET",
+				"header": [],
 				"url": {
 					"raw": "http://localhost:5000/commentaire",
 					"protocol": "http",
@@ -162,6 +235,89 @@
 					"port": "5000",
 					"path": [
 						"commentaire"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifBug",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titre\":\"test\",\r\n    \"description\":\"nouvelle description\",\r\n    \"priorite\":\"basse\",\r\n    \"etat\":\"Termine\",\r\n    \"dateC\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/bug/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ajoutDevBug",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/bug/1/dev/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"bug",
+						"1",
+						"dev",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout com",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\":\"nouveauBug\",\r\n    \"dateP\":\"10-12-2020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/com/bug/1/dev/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"com",
+						"bug",
+						"1",
+						"dev",
+						"2"
 					]
 				}
 			},
