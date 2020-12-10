@@ -1,4 +1,4 @@
-export interface developpeur
+export interface Developpeur
 {
   id?: number;
   nom: string;

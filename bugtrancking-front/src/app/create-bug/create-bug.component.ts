@@ -1,7 +1,7 @@
+import { BugsService } from './../services/bugs.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Bug } from '../models/bug';
-import { BugService } from './../services/bugs.service';
 import { Router } from '@angular/router';
 import { Output, EventEmitter } from '@angular/core';
 
@@ -10,17 +10,15 @@ import { Output, EventEmitter } from '@angular/core';
   templateUrl: './create-bug.component.html',
   styleUrls: ['./create-bug.component.css']
 })
-export class CreateBugComponent implements OnInit
-{
+export class CreateBugComponent implements OnInit{
   createForm: FormGroup;
 
   @OutPut() createEvent = new EventEmitter<Bug>();
 
   constructor(public formBuilder: FormBuilder,
-              private bugService: BugService) { }
+              private bugsService: BugsService) { }
 
-  ngOnInit(): void
-  {
+  ngOnInit(): void{
     this.createForm = this.formBuilder.group({
       titre: '',
       description: '',
@@ -39,12 +37,13 @@ export class CreateBugComponent implements OnInit
     {
       titre: bugData.titre,
       description: bugData.description,
+      priorite: bugData.priorite,
       etat: bugData.etat,
       dateC : bugData.dateC,
       developpeur: bugData.developpeur,
       commentaire: bugData.commentaire
     };
-    this.bugService.createBug(bug).subscribe((bugResponse) => {
+    this.bugsService.createBug(bug).subscribe((bugResponse) => {
       this.createEvent.emit(bugResponse);
     });
   }

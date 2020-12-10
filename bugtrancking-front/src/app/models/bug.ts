@@ -1,6 +1,7 @@
 export interface Bug
 {
   id?: number;
+  description: string,
   titre: string;
   priorite: string;
   etat: string;

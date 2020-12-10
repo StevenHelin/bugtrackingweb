@@ -9,7 +9,7 @@ import { DeveloppeurDetailComponent } from './developpeur-detail/developpeur-det
 const routes: Routes = [
     {path: 'bugs', component: BugListComponent},
     {path: 'bugs/:id', component: BugDetailComponent},
-    {path: 'developpeurs', component: DevelopeurListComponent},
+    {path: 'developpeurs', component: DeveloppeurListComponent},
     {path: 'developpeurs/:id', component: DeveloppeurDetailComponent},
     {path: '', redirectTo: 'bugs', pathMatch: 'full'}
 ];

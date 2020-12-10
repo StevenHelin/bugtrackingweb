@@ -7,11 +7,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class DeveloppeurService {
+export class DeveloppeursService {
 
   constructor(private http: HttpClient) { }
 
-  public getDeveloppeursList(): Observable<Developppeur[]> {
+  public getDeveloppeursList(): Observable<Developpeur[]> {
     return this.http.get<Developpeur[]>(`${environment.url}/developpeurs`);
   }
 

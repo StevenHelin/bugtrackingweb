@@ -1,8 +1,9 @@
+import { DeveloppeursService } from './../services/developpeurs.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Developpeur } from '../models/developpeur';
-import { DeveloppeurService } from './../services/developpeurs.service';
 import { Router } from '@angular/router';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-create-developpeur',
@@ -16,7 +17,7 @@ export class CreateDeveloppeurComponent implements OnInit {
     @OutPut() createEvent = new EventEmitter<Developpeur>();
 
     constructor(public formBuilder: FormBuilder,
-                private developpeurService: DeveloppeurService) { }
+                private developpeursService: DeveloppeursService) { }
 
     ngOnInit(): void
     {
@@ -38,7 +39,7 @@ export class CreateDeveloppeurComponent implements OnInit {
         bugs: developpeurData.bugs,
         commentaires: developpeurData.commentaires
       };
-      this.developpeurData.createDeveloppeur(developpeur).subscribe((developpeurResponse) => {
+      this.developpeursService.createDeveloppeur(developpeur).subscribe((developpeurResponse) => {
         this.createEvent.emit(developpeurResponse);
       });
     }
