@@ -1,12 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>Mes bugs</h2>
-      <ul class="list-group">
-        <app-bug-list></app-bug-list>
-        <app-bug-list></app-bug-list>
-        <app-bug-list></app-bug-list>
-      </ul>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Students</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="goToLink('https://github.com/MrADOY/students')">
+          <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg"/>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="goToLink('http://localhost:8080/h2-console')">
+          <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/mysql.svg"/>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="goToLink('http://localhost:8080/swagger-ui/index.html#/')">
+          <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/swagger.svg"/>
+        </a>
+      </li>
+    </ul>
   </div>
+</nav>
+
+<div style="margin-left: 20%; margin-right: 20%">
+  <router-outlet></router-outlet>
 </div>

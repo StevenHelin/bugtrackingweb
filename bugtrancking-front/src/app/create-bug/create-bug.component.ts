@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Bug } from '../models/bug';
-import { BugService } from './../services/bug.service';
+import { BugService } from './../services/bugs.service';
 import { Router } from '@angular/router';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-create-bug',
@@ -21,13 +22,13 @@ export class CreateBugComponent implements OnInit
   ngOnInit(): void
   {
     this.createForm = this.formBuilder.group({
-      titre='',
-      description='',
-      priorite='',
-      etat='TODO',
-      dateC='',
-      developpeur='',
-      commentaire=''
+      titre: '',
+      description: '',
+      priorite: '',
+      etat: 'TODO',
+      dateC: '',
+      developpeur: '',
+      commentaire: ''
     });
   }
 

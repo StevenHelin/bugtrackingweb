@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Developpeur } from '../models/developpeur';
-import { DeveloppeurService } from './../services/developpeur.service';
+import { DeveloppeurService } from './../services/developpeurs.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,9 +21,10 @@ export class CreateDeveloppeurComponent implements OnInit {
     ngOnInit(): void
     {
       this.createForm = this.formBuilder.group({
-        nom='',
-        avatar='',
-        bugs=''
+        nom: '',
+        avatar: '',
+        bugs: '',
+        commentaires: ''
       });
     }
 
@@ -34,7 +35,8 @@ export class CreateDeveloppeurComponent implements OnInit {
       {
         nom: developpeurData.nom,
         avatar: developpeurData.avatar,
-        bugs: developpeurData.bugs
+        bugs: developpeurData.bugs,
+        commentaires: developpeurData.commentaires
       };
       this.developpeurData.createDeveloppeur(developpeur).subscribe((developpeurResponse) => {
         this.createEvent.emit(developpeurResponse);
