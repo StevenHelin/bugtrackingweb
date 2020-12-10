@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bugtrancking-front';
+    goToLink(url: string): void{
+      window.open(url, '_blank');
+}
 }

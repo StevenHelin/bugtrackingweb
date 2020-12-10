@@ -1,6 +1,6 @@
 <h3 class="mt-3">Create bug</h3>
 <div>
-  <form [formGroup]="createForm" (ngSubmit)="onSubmit(createForm.value)">
+  <form [formGroup]="createForm" (ngSubmit)="OnSubmit(createForm.value)">
     <div class="d-flex flex-nowrap justify-content-between">
       <div style="flex-grow: 1">
         <input placeholder="Titre" class="form-control" id="titre" type="text" formControlName="titre">

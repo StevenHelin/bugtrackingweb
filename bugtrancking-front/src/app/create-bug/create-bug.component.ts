@@ -11,9 +11,10 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrls: ['./create-bug.component.css']
 })
 export class CreateBugComponent implements OnInit{
+
   createForm: FormGroup;
 
-  @OutPut() createEvent = new EventEmitter<Bug>();
+  @Output() createEvent = new EventEmitter<Bug>();
 
   constructor(public formBuilder: FormBuilder,
               private bugsService: BugsService) { }
