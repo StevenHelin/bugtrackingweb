@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Student } from '../models/bug';
+import { Bug } from '../models/bug';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -18,7 +18,7 @@ export class BugService {
   public deleteBug(id: number): Observable<any> {
     return this.http.delete(`${environment.url}/bugs/${id}`);
   }
-  public createBug(student: Bug): Observable<Student> {
-    return this.http.post<Student>(`${environment.url}/bugs`, bug);
+  public createBug(bug: Bug): Observable<Bug> {
+    return this.http.post<Bug>(`${environment.url}/bugs`, bug);
   }
 }
