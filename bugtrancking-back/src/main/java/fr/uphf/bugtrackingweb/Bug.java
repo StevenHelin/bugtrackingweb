@@ -1,14 +1,10 @@
 package fr.uphf.bugtrackingweb;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,18 +18,23 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Builder
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class Bug {
-    @Id
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String titre;
     private String description;
     private String priorite;
     private String etat;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dateC;
     @ManyToOne
-    @JsonBackReference
+    //@JsonBackReference
     private Developpeur developpeur;
     @OneToMany(mappedBy = "bug", orphanRemoval=true)
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<Commentaire> commentaire;
 }

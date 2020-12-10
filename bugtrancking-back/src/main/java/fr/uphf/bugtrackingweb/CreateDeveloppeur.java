@@ -18,6 +18,6 @@ import java.util.List;
 public class CreateDeveloppeur {
     private String nom;
     private String avatar;
-    private List<Bug> bugs;
-    private List<Commentaire> commentaires;
+    //private List<Bug> bugs;
+    //private List<Commentaire> commentaires;
 }

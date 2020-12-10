@@ -14,10 +14,6 @@ public interface BugRepository extends JpaRepository<Bug, Integer> {
     @Query("SELECT b FROM Bug b WHERE b.titre LIKE %?1%")
     List<Bug> findBugByTitle(String titre);
 
-
-    @Query("SELECT b.commentaire FROM Bug b WHERE b.id= ?1 ")
-    Bug PrintComById(int id);
-
     @Query("SELECT b FROM Bug b WHERE b.etat= ?1 ")
     List<Bug> findBugByEtat(String etat);
 

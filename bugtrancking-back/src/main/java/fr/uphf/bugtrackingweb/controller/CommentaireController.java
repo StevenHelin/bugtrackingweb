@@ -1,54 +1,64 @@
 package fr.uphf.bugtrackingweb.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 
-import fr.uphf.bugtrackingweb.Bug;
-import fr.uphf.bugtrackingweb.Commentaire;
-import fr.uphf.bugtrackingweb.CreateBug;
-import fr.uphf.bugtrackingweb.CreateCommentaire;
+import fr.uphf.bugtrackingweb.*;
+import fr.uphf.bugtrackingweb.repositories.BugRepository;
 import fr.uphf.bugtrackingweb.repositories.CommentaireRepository;
+import fr.uphf.bugtrackingweb.repositories.DeveloppeurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class CommentaireController
-{
+public class CommentaireController {
     @Autowired
     CommentaireRepository CommentaireRepository;
 
+    @Autowired
+    BugRepository BugRepository;
+
+    @Autowired
+    DeveloppeurRepository DeveloppeurRepository;
+
     @GetMapping("commentaire/{id}")
-    public Commentaire getCommentaire(@PathVariable("id") Integer id)
-    {
+    public Commentaire getCommentaire(@PathVariable("id") Integer id) {
         return CommentaireRepository.findById(id).orElse(null);
     }
 
     @GetMapping("commentaire")
-    public List<Commentaire> getAllCommentaire()
-    {
+    public List<Commentaire> getAllCommentaire() {
         return CommentaireRepository.findAll();
     }
 
-    @PostMapping("commentaire")
-    public Commentaire createCommentaire(@Validated @RequestBody CreateCommentaire com) {
-        return CommentaireRepository.save(
-                Commentaire
-                        .builder()
-                        .message(com.getMessage())
-                        .developpeur(com.getAuteur())
-                        .dateP((com.getDateP()))
-                        .bug(com.getBug())
-                        .build()
-        );
+    @PostMapping("/com/bug/{id}/dev/{iddev}")
+    public ResponseEntity<?> ajoutCom(@PathVariable("id") int id, @PathVariable("iddev") int iddev,@Validated @RequestBody CreateCommentaire com) {
+
+        try {
+            Bug bug = this.BugRepository.findById(id).map(bugFound -> {
+                return bugFound;
+            }).orElseThrow(() -> new RuntimeException("Bug non trouvé"));
+            Developpeur dev = this.DeveloppeurRepository.findById(id).map(devFound -> {
+                return devFound;
+            }).orElseThrow(() -> new RuntimeException("Dev non trouvé"));
+            CommentaireRepository.save(
+                    Commentaire
+                            .builder()
+                            .message(com.getMessage())
+                            .developpeur(dev)
+                            .dateP((com.getDateP()))
+                            .bug(bug)
+                            .build()
+            );
+            return ResponseEntity.ok(com);
+        }
+        catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(e);
+        }
+
     }
-
-
 }

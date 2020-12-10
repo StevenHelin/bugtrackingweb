@@ -21,5 +21,5 @@ public class CreateCommentaire {
     private Developpeur auteur;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dateP;
-    private Bug bug;
+    //private Bug bug;
 }

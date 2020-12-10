@@ -48,8 +48,8 @@ public class BugController {
                 .priorite(bug.getPriorite())
                 .etat(bug.getEtat())
                 .dateC(bug.getDateC())
-                .developpeur(bug.getDeveloppeur())
-                .commentaire(bug.getCommentaires())
+                //.developpeur(bug.getDeveloppeur())
+                //.commentaire(bug.getCommentaires())
                 .build()
         );
     }
@@ -70,13 +70,9 @@ public class BugController {
         return BugRepository.findBugByDate(debut,fin);
     }
 
-    @GetMapping("bug/liste/{id}")
-    public Bug getBugCom(@PathVariable("id") Integer id) {
-        return BugRepository.PrintComById(id);
-    }
 
-    @PutMapping("/bug/{id}")
-    public Optional<Bug> replaceBugById(@RequestParam CreateBug bug, @PathVariable int id){
+    @PutMapping("bug/{id}")
+    public Optional<Bug> replaceBugById(@RequestBody CreateBug bug, @PathVariable int id){
         return BugRepository.findById(id)
                 .map(Bug -> {
                 Bug.setTitre(bug.getTitre());
@@ -88,8 +84,8 @@ public class BugController {
                 });
     }
 
-    @PutMapping("/bug/{id]/dev/{iddev}")
-    public ResponseEntity<?> ajoutDev(@PathVariable("id") int id,@PathVariable("iddev") int iddev){
+    @PutMapping("bug/{id}/dev/{iddev}")
+    public ResponseEntity<?> ajoutDev(@PathVariable("id") Integer id,@PathVariable("iddev") Integer iddev){
         try {
             Bug bug = this.BugRepository.findById(id).map(bugFound ->{
                 Optional<Developpeur> devFound = this.DeveloppeurRepository.findById(iddev);

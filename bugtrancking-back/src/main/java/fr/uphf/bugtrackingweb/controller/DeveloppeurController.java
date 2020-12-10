@@ -44,8 +44,8 @@ public class DeveloppeurController
                         .builder()
                         .nom(dev.getNom())
                         .avatar(dev.getAvatar())
-                        .bugs(dev.getBugs())
-                        .commentaires(dev.getCommentaires())
+                        //.bugs(dev.getBugs())
+                        //.commentaires(dev.getCommentaires())
                         .build()
         );
     }

@@ -1,5 +1,6 @@
 package fr.uphf.bugtrackingweb;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,8 @@ public class CreateBug {
     private String description;
     private String priorite;
     private String etat;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date dateC;
-    private Developpeur developpeur;
-    private List<Commentaire> commentaires;
+    //private Developpeur developpeur;
+    //private List<Commentaire> commentaires;
 }
