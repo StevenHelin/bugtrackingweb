@@ -25,16 +25,19 @@ public class CommentaireController {
     @Autowired
     DeveloppeurRepository DeveloppeurRepository;
 
+    //requete pour chercher un bug en fonction d'un Id donnée
     @GetMapping("commentaire/{id}")
     public Commentaire getCommentaire(@PathVariable("id") Integer id) {
         return CommentaireRepository.findById(id).orElse(null);
     }
 
+    //requete pour afficher tout les commentaire
     @GetMapping("commentaire")
     public List<Commentaire> getAllCommentaire() {
         return CommentaireRepository.findAll();
     }
 
+    //requete pour créer un nouveau commentaire et l'ajouter a un bug donné
     @PostMapping("/com/bug/{id}/dev/{iddev}")
     public ResponseEntity<?> ajoutCom(@PathVariable("id") int id, @PathVariable("iddev") int iddev,@Validated @RequestBody CreateCommentaire com) {
 

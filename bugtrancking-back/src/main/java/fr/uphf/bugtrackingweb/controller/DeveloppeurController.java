@@ -25,18 +25,21 @@ public class DeveloppeurController
     @Autowired
     DeveloppeurRepository DeveloppeurRepository;
 
+    //requete permettant d'afficher un developpeur en fonction d'une Id donnée
     @GetMapping("developpeur/{id}")
     public Developpeur getDeveloppeur(@PathVariable("id") Integer id)
     {
         return DeveloppeurRepository.findById(id).orElse(null);
     }
 
+    //requete permettant d'afficher tout les developpeurs de la base de données
     @GetMapping("developpeur")
     public List<Developpeur> getAllDeveloppeur()
     {
         return DeveloppeurRepository.findAll();
     }
 
+    //requete pour créer un nouveau developpeur
     @PostMapping("developpeur")
     public Developpeur createDeveloppeur(@Validated @RequestBody CreateDeveloppeur dev) {
         return DeveloppeurRepository.save(
