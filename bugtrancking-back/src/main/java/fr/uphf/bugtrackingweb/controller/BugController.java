@@ -55,7 +55,7 @@ public class BugController {
     }
 
     @GetMapping("bug/titre")
-    public List<Bug> getBug(@RequestParam String titre) {
+    public List<Bug> getBugTitre(@RequestParam String titre) {
         return BugRepository.findBugByTitle(titre);
     }
 
