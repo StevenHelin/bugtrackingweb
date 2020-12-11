@@ -19,7 +19,7 @@ export class DeveloppeurListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showSpinner = true;
-    this.developpeursService.getDeveloppeursList()
+    this.developpeursService.getAllDeveloppeur()
     .pipe(delay(2000))
     .subscribe((developpeursResponse => {
       this.developpeurs = developpeursResponse;
@@ -35,7 +35,7 @@ export class DeveloppeurListComponent implements OnInit {
     });
   }
   /* Callback of child component */
-  addDeveloppeur(newDeveloppeur: Developpeur): void {
+  createDeveloppeur(newDeveloppeur: Developpeur): void {
     this.developpeurs.push(newDeveloppeur);
   }
 

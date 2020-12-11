@@ -11,14 +11,19 @@ export class DeveloppeursService {
 
   constructor(private http: HttpClient) { }
 
-  public getDeveloppeursList(): Observable<Developpeur[]> {
+  public getDeveloppeur(id: number): Observable<Developpeur[]> {
+    return this.http.get<Developpeur[]>(`${environment.url}/developpeur/{id}`);
+  }
+
+  public getAllDeveloppeur(): Observable<Developpeur[]> {
     return this.http.get<Developpeur[]>(`${environment.url}/developpeurs`);
   }
 
   public deleteDeveloppeur(id: number): Observable<any> {
     return this.http.delete(`${environment.url}/developpeurs/${id}`);
   }
-  public createDeveloppeur(developpeur: Developpeur): Observable<Developpeur> {
-    return this.http.post<Developpeur>(`${environment.url}/developpeurs`, developpeur);
+
+  public createDeveloppeur(dev: Developpeur): Observable<Developpeur> {
+    return this.http.post<Developpeur>(`${environment.url}/developpeurs`, dev);
   }
 }

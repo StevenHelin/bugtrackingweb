@@ -11,9 +11,9 @@ export class BugsService {
 
   constructor(private http: HttpClient) { }
 
-  public getBug(bug: Bug): Observable<Bug[]>
+  public getBug(id: number): Observable<Bug>
   {
-    return this.http.get<Bug[]>(`${environment.url}/bug/{id}`);
+    return this.http.get<Bug>(`${environment.url}/bug/${id}`);
   }
 
   public getAllBug(): Observable<Bug[]>
@@ -23,20 +23,15 @@ export class BugsService {
 
   public deleteBug(id: number): Observable<any>
   {
-    return this.http.delete(`${environment.url}/bug/{id}`);
+    return this.http.delete(`${environment.url}/bug/${id}`);
   }
 
-  public createBug(bug: Bug): Observable<Bug[]>
+  public createBug(bug: Bug): Observable<Bug>
   {
     return this.http.post<Bug>(`${environment.url}/bug`, bug);
   }
 
-  public getBug(bug: Bug): Observable<Bug[]>
-  {
-    return this.http.get<Bug[]>(`${environment.url}/bug/titre`);
-  }
-
-  public getBug(string: String): Observable<Bug[]>
+  public getBugTitre(titre: String): Observable<Bug[]>
   {
     return this.http.get<Bug[]>(`${environment.url}/bug/titre`);
   }
@@ -51,13 +46,13 @@ export class BugsService {
     return this.http.get<Bug[]>(`${environment.url}/bug/date`);
   }
 
-  public replaceBugById(): Observable<Bug[]>
+  public replaceBugById(bug: Bug, id: number): Observable<Bug>
   {
-    return this.http.put<Bug[]>(`${environment.url}/bug/{id}`);
+    return this.http.put<Bug>(`${environment.url}/bug/${id}`, bug);
   }
 
-  public ajoutDev(id: number, iddev: number): Observable<Bug[]>
+  public ajoutDev(bug: Bug, id: number, iddev: number): Observable<Bug>
   {
-    return this.http.put<Bug[]>(`${environment.url}/bug/{id}/dev/{iddev}`);
+    return this.http.put<Bug>(`${environment.url}/bug/${id}/dev/${iddev}`, bug);
   }
 }

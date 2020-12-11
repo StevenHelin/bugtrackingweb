@@ -19,7 +19,7 @@ export class BugListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showSpinner = true;
-    this.bugsService.getBugsList()
+    this.bugsService.getAllBug()
     .pipe(delay(2000))
     .subscribe((bugsResponse => {
       this.bugs = bugsResponse;
@@ -35,7 +35,7 @@ export class BugListComponent implements OnInit {
     });
   }
   /* Callback of child component */
-  addBug(newBug: Bug): void {
+  createBug(newBug: Bug): void {
     this.bugs.push(newBug);
   }
 
