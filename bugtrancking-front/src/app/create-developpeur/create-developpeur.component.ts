@@ -14,7 +14,7 @@ export class CreateDeveloppeurComponent implements OnInit {
 
   createForm: FormGroup;
 
-    @OutPut() createEvent = new EventEmitter<Developpeur>();
+  @Output() createEvent = new EventEmitter<Developpeur>();
 
     constructor(public formBuilder: FormBuilder,
                 private developpeursService: DeveloppeursService) { }
